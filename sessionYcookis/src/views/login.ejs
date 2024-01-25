@@ -8,56 +8,56 @@
 <% if (locals.usuario && usuario.color == 'blue') { %>
 <body style="background-color: blue;">
   <div>
-    <h1>Hola <%= locals.usuario.name%>, 
-      elegiste el color: <%= locals.usuario.color%>, 
-      tu email es:  <%= locals.usuario.email%> 
-      y tienes  <%= locals.usuario.edad%> años.</h1>
-      <a href="/logout"><button>Olvidar el color</button></a>
+    <h1>Hola <%= locals.usuario.name%></h1>
+    <h2>Elegiste el color: <%= locals.usuario.color%></h2>
+    <h3>Tu email es:  <%= locals.usuario.email%> </h3>
+    <h4>Y tienes  <%= locals.usuario.edad%> años.</h4>
+    <a href="/logout"><button>Olvidar el color</button></a>
   </div>
 <% } else if(locals.usuario && usuario.color  == 'red'){ %>
 <body style="background-color: red;">
   <div>
-    <h1>Hola <%= locals.usuario.name%>, 
-      elegiste el color: <%= locals.usuario.color%>, 
-      tu email es:  <%= locals.usuario.email%> 
-      y tienes  <%= locals.usuario.edad%> años.</h1>
-      <a href="/logout"><button>Olvidar el color</button></a>
+    <h1>Hola <%= locals.usuario.name%></h1>
+    <h2>Elegiste el color: <%= locals.usuario.color%></h2>
+    <h3>Tu email es:  <%= locals.usuario.email%> </h3>
+    <h4>Y tienes  <%= locals.usuario.edad%> años.</h4>
+    <a href="/logout"><button>Olvidar el color</button></a>
   </div>
 <% } else if(locals.usuario && usuario.color == 'yellow'){ %>
   <body style="background-color: yellow;">
     <div>
-      <h1>Hola <%= locals.usuario.name%>, 
-        elegiste el color: <%= locals.usuario.color%>, 
-        tu email es:  <%= locals.usuario.email%> 
-        y tienes  <%= locals.usuario.edad%> años.</h1>
-        <a href="/logout"><button>Olvidar el color</button></a>
+      <h1>Hola <%= locals.usuario.name%></h1>
+      <h2>Elegiste el color: <%= locals.usuario.color%></h2>
+      <h3>Tu email es:  <%= locals.usuario.email%> </h3>
+      <h4>Y tienes  <%= locals.usuario.edad%> años.</h4>
+      <a href="/logout"><button>Olvidar el color</button></a>
     </div>
 <% } else if(locals.usuario && usuario.color == 'green'){ %>
 <body style="background-color: green;">
   <div>
-    <h1>Hola <%= locals.usuario.name%>, 
-      elegiste el color: <%= locals.usuario.color%>, 
-      tu email es:  <%= locals.usuario.email%> 
-      y tienes  <%= locals.usuario.edad%> años.</h1>
-      <a href="/logout"><button>Olvidar el color</button></a>
+    <h1>Hola <%= locals.usuario.name%></h1>
+    <h2>Elegiste el color: <%= locals.usuario.color%></h2>
+    <h3>Tu email es:  <%= locals.usuario.email%> </h3>
+    <h4>Y tienes  <%= locals.usuario.edad%> años.</h4>
+    <a href="/logout"><button>Olvidar el color</button></a>
   </div>
 <% } else if(locals.usuario && usuario.color == 'orange'){ %>
 <body style="background-color: orange;">
   <div>
-    <h1>Hola <%= locals.usuario.name%>, 
-      elegiste el color: <%= locals.usuario.color%>, 
-      tu email es:  <%= locals.usuario.email%> 
-      y tienes  <%= locals.usuario.edad%> años.</h1>
-      <a href="/logout"><button>Olvidar el color</button></a>
+    <h1>Hola <%= locals.usuario.name%></h1>
+    <h2>Elegiste el color: <%= locals.usuario.color%></h2>
+    <h3>Tu email es:  <%= locals.usuario.email%> </h3>
+    <h4>Y tienes  <%= locals.usuario.edad%> años.</h4>
+    <a href="/logout"><button>Olvidar el color</button></a>
   </div>
 <% } else if(locals.usuario && usuario.color == 'purple'){ %>
 <body style="background-color: purple;">
-<div>
-    <h1>Hola <%= locals.usuario.name%>, 
-      elegiste el color: <%= locals.usuario.color%>, 
-      tu email es:  <%= locals.usuario.email%> 
-      y tienes  <%= locals.usuario.edad%> años.</h1>
-      <a href="/logout"><button>Olvidar el color</button></a>
+  <div>
+    <h1>Hola <%= locals.usuario.name%></h1>
+    <h2>Elegiste el color: <%= locals.usuario.color%></h2>
+    <h3>Tu email es:  <%= locals.usuario.email%> </h3>
+    <h4>Y tienes  <%= locals.usuario.edad%> años.</h4>
+    <a href="/logout"><button>Olvidar el color</button></a>
   </div>
 
 </body>
@@ -72,18 +72,17 @@
     <main class="container_formulario_index">
 
       <form action="/" method="post">
-        <!-- <fieldset> -->
-          <!-- <legend>Completa el Formulario:</legend> -->
+        <fieldset>
+          <legend>Completa el Formulario:</legend>
           
           <div class="container_formulario_index">
 
             <div>
               <label for="name">Ingrese su Nombre:</label>
               <input type="text" name="name" id="name" value="<%= locals.oldData ? oldData.name : null %>">
-              <div>
-                <h5><%= locals.errores && errores.name ? errores.name.msg : null %> </h5>
+              <div class="errores_form">
+                <p><%= locals.errors && errors.name ? errors.name.msg : null %> </p>
               </div>
-              
             </div>
     
             <div>
@@ -97,24 +96,23 @@
                 <option value="orange"<%= locals.oldData && (oldData.color == "orange")? "selected" : null %>>NARANJA</option>
                 <option value="purple"<%= locals.oldData && (oldData.color == "purple")? "selected" : null %>>VIOLETA</option>
               </select>
-              <div>
-                <p><%= locals.errors && errors.color ? errors.color.msg: null %></p></div>
-              
+              <div class="errores_form">
+                <p><%= locals.errors && errors.color ? errors.color.msg: null %></p>
+              </div>
             </div>
     
               <div>
                 <label for="email">Ingrese su Email:</label>
                 <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>">
-                <div>
-                  <h5><%= locals.errores && errores.email ? errores.email.msg : null %> </h5>
+                <div class="errores_form">
+                  <p><%= locals.errors && errors.email ? errors.email.msg : null %> </p>
                 </div>
-               
               </div>
     
               <div>
                 <label for="edad">Ingrese su Edad:</label>
                 <input type="number" name="edad" id="edad" value="<%= locals.oldData ? oldData.edad : null %>">
-                <div>
+                <div class="errores_form">
                   <p><%= locals.errors && errors.edad ? errors.edad.msg: null %></p>
                 </div>
                 

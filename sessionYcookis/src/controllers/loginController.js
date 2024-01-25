@@ -2,11 +2,11 @@ const {validationResult} = require('express-validator');
 
 
 const usersController = {
-    login: (req,res)=>{
+    login: (req, res,next)=>{
         res.render("login", {title: "LOGIN", usuario:req.session.usuario })
     },
 
-    processLogin : (req,res) => {
+    processLogin : (req, res, next) => {
         // res.send ('ACA TIENE QUE LLEGAR LO QUE ELIGIO EL USUARIO')
         const errores = validationResult(req)
         
