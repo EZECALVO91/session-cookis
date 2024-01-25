@@ -14,7 +14,7 @@ const formulario =[
     
     body('edad')
     .notEmpty().withMessage('*DEBE COMPLETAR SU EDAD*').bail()
-    .isInt({ min: 18, max: 80}).withMessage('*DEBE COMPLETAR EL CAMPO ENTRE 18 y 80 AÑOS*').bail()
+    .isInt({ min: 18, max: 80}).withMessage('*DEBES TENER MAS DE 18*').bail()
 ]
 
 
