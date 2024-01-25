@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<!-- ACA ABAJO VOY A REQUERIR EL PARTIAL -->
+<%- include("./partials/head.ejs", {
+  title : 'Login'
+})  %> 
+<% if (locals.usuario && usuario.color === 'blue') { %>
+<body style="background-color: blue;">
+<% } else if(locals.usuario && usuario.color  === 'red'){ %>
+<body style="background-color: red;">
+<% } else if(locals.usuario && usuario.color === 'yellow'){ %>
+<body style="background-color: yellow;">
+<% } else if(locals.usuario && usuario.color === 'green'){ %>
+<body style="background-color: green;">
+<% } else if(locals.usuario && usuario.color === 'orange'){ %>
+<body style="background-color: orange;">
+<% } else if(locals.usuario && usuario.color === 'purple'){ %>
+<body style="background-color: purple;">
+
+<!-- //ACA HAY QUE SEGUIR DESARROLLANDO LA LOGICA -->
+
+
+  <header>
+    <h1>ESTE ES EL COLOR QUE ELEGISTE!!!</h1>
+  </header>
+</body>
+
+  <% } else {%>
+<body>
+      <!-- HEADER -->
+    <header>
+      <h1>ELEGI EL COLOR QUE MAS TE GUSTE!</h1>
+    </header>
+    <!-- MAIN de FORMULARIO -->
+    <main class="container_formulario_index">
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Completa el Formulario:</legend>
+          
+          <div class="container_formulario_index">
+
+            <div>
+              <label for="name">Ingrese su Nombre:</label>
+              <input type="text" name="name" id="name" value="<%= locals.oldData ? oldData.name : null %>">
+              <p><%= locals.errores && errores.name ? errores.name.msg : null %> </p>
+            </div>
+    
+            <div>
+              <label for="color">Elegi un Color:</label>
+              <select name="color" id="color">
+                <option value="">SIN ASIGNAR</option>
+                <option value="blue"<%= locals.oldData && (oldData.color == "blue")? "selected" : null %>>AZUL</option>
+                <option value="red"<%= locals.oldData && (oldData.color == "red")? "selected" : null %>>ROJO</option>
+                <option value="yellow"<%= locals.oldData && (oldData.color == "yellow")? "selected" : null %>>AMARILLO</option>
+                <option value="green"<%= locals.oldData && (oldData.color == "green")? "selected" : null %>>VERDE</option>
+                <option value="orange"<%= locals.oldData && (oldData.color == "orange")? "selected" : null %>>NARANJA</option>
+                <option value="purple"<%= locals.oldData && (oldData.color == "purple")? "selected" : null %>>VIOLETA</option>
+              </select>
+              <p><%= locals.errors && errors.color ? errors.color.msg: null %></p>
+            </div>
+    
+              <div>
+                <label for="email">Ingrese su Email:</label>
+                <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>">
+                <p><%= locals.errores && errores.email ? errores.email.msg : null %> </p>
+              </div>
+    
+              <div>
+                <label for="edad">Ingrese su Edad:</label>
+                <input type="number" name="edad" id="edad" value="<%= locals.oldData ? oldData.edad : null %>">
+                <p><%= locals.errors && errors.edad ? errors.edad.msg: null %></p>
+              </div>
+    
+          </div>
+          <div>
+            <label for="recuerdame"></label>
+            recordar color<input type="checkbox" name="recuerdame">
+          </div>
+
+          <div><button type="submit">Enviar Informacion</button></div>
+        </fieldset>
+      </form>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <h1>Y MIRA LO QUE PASA!!</h1>
+    </footer>
+</body>
+<% }%> %>
+    
+</html>

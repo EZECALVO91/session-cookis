@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 10px;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
